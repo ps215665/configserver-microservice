@@ -2,13 +2,22 @@ spring:
   application:
     name: configserver
   profiles:
-    active: native
+    active: git
+#    active: native
   cloud:
     config:
       server:
-        native:
-          search-locations: "classpath:/config"
+        git:
+          uri: https://github.com/ps215665/${CONFIG_REPO}.git
+          username: ${GIT_USER}
+          password: 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
+          clone-on-start: true
+          default-label: ${GIT_BRANCH}
+          force-pull: true
+#        native:
+#          search-locations: "classpath:/config"
 
 server:
   port: 8082
-
+encrypt:
+  key: "AEJFHRYEGVBCGDEWTER12"
