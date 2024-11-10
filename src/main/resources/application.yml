@@ -15,7 +15,7 @@ spring:
           default-label: ${GIT_BRANCH}
           force-pull: true
   rabbitmq:
-    host: "rabbitmq"
+    host: "${RABBITMQ_HOST:localhost}"
     username: "guest"
     password: "guest"
     port: 5672
