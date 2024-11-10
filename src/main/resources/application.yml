@@ -14,10 +14,30 @@ spring:
           clone-on-start: true
           default-label: ${GIT_BRANCH}
           force-pull: true
-#        native:
+  rabbitmq:
+    host: "rabbitmq"
+    username: "guest"
+    password: "guest"
+    port: 5672
+#        native: -- for class path like getting files from the config server files or file for location on disk
 #          search-locations: "classpath:/config"
 
 server:
-  port: 8082
+  port: 8097
 encrypt:
   key: "AEJFHRYEGVBCGDEWTER12"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    readinessstate:
+      enabled: true
+    livenessstate:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
